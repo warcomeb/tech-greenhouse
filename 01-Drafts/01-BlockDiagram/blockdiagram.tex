@@ -26,6 +26,7 @@
  \documentclass{standalone}
 
 \usepackage{tikz}
+\newcommand{\mylsize}[1]{\small{\textbf{#1}}} 
 \newcommand{\mysize}[1]{\footnotesize{\textbf{#1}}} 
 \newcommand{\myssize}[1]{\tiny{\textbf{#1}}} 
 
@@ -43,11 +44,13 @@
 
 \def\supplyheight{3}
 
+\def\stmheight{2}
+
 \begin{document}
 
-\begin{tikzpicture}[thick,scale=0.9]
+\begin{tikzpicture}
 
-\draw[help lines, style=gray] (0,0) grid (25,25);
+%\draw[help lines, style=gray] (0,0) grid (25,25);
 
 % FRDM
 \node (frdm) at (10,10){};
@@ -58,12 +61,43 @@
 \node (supply) at (16,10){};
 \draw  (supply) rectangle ($(supply)+(\tableblockwdth , \supplyheight)$);
 \draw  ($(supply)+(\tableblockwdth/2  , 0)$)--($(supply)+(\tableblockwdth/2 , \supplyheight)$);
-\node at ($(supply)+(1 , \frdmheight/3 - 0.5)$) {\mysize{3V3}};
-\draw[thin]($(supply)+(0  , \frdmheight/3)$)--($(supply)+(\tableblockwdth/2 ,\frdmheight/3)$);
-\node at ($(supply)+(1 , \frdmheight/3 + 0.5)$) {\mysize{5V}};
-\draw[thin]($(supply)+(0  , \frdmheight/3 + 1)$)--($(supply)+(\tableblockwdth/2 ,\frdmheight/3 + 1)$);
-\node at ($(supply)+(1 , \frdmheight/3 + 1.5)$) {\mysize{24V}};
-\draw[thin]($(supply)+(0  , \frdmheight/3 + 2)$)--($(supply)+(\tableblockwdth/2 ,\frdmheight/3 + 2)$);
-\node at ($(supply)+(\tableblockwdth/2 + 1 , \frdmheight/2)$) {\mysize{220V}};
+\node at ($(supply)+(1 , \supplyheight/2 - + \supplyheight/4)$) {\mysize{3V3}};
+\draw[thin]($(supply)+(0  , \supplyheight/2)$)--($(supply)+(\tableblockwdth/2 ,\supplyheight/2)$);
+\node at ($(supply)+(1 , \supplyheight/2 + \supplyheight/4)$) {\mysize{5V}};
+\node at ($(supply)+(\tableblockwdth/2 + 1 , \supplyheight/2)$) {\mylsize{12V}};
+
+% STM
+\node (stm) at (16,14){};
+\draw (stm) rectangle ($(stm)+(\tableblockwdth , \stmheight)$);
+\node at ($(stm)+(\tableblockcenter , \stmheight/2)$) {\mysize{STM WiFi}};
+
+%% EXTERNAL COMPONENT
+\draw[dotted](0,9)--(21,9);
+
+% MOISTURE 1
+\node (moi1) at (16,6){};
+\node [above right, inner sep=0pt, outer sep=0pt] at (moi1) {\includegraphics[width=2cm]{images/moisture}};
+\draw (moi1) rectangle ($(moi1)+(2 , 2)$);
+
+% MOISTURE 2
+\node (moi2) at (19,6){};
+\node [above right, inner sep=0pt, outer sep=0pt] at (moi2) {\includegraphics[width=2cm]{images/moisture}};
+\draw (moi2) rectangle ($(moi2)+(2 , 2)$);
+
+% MOISTURE 3
+\node (moi3) at (16,3){};
+\node [above right, inner sep=0pt, outer sep=0pt] at (moi3) {\includegraphics[width=2cm]{images/moisture}};
+\draw (moi3) rectangle ($(moi3)+(2 , 2)$);
+
+% MOISTURE 4
+\node (moi4) at (19,3){};
+\node [above right, inner sep=0pt, outer sep=0pt] at (moi4) {\includegraphics[width=2cm]{images/moisture}};
+\draw (moi4) rectangle ($(moi4)+(2 , 2)$);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LINE
+% POWER SUPPLY INPUT
+\draw[<-,ultra thick]($(supply)+( \tableblockwdth , \supplyheight/2)$)--($(supply)+ ( \tableblockwdth + 1, \supplyheight/2)$);
+
+
 \end{tikzpicture}
 \end{document}
