@@ -7,3 +7,6 @@
 [submodule "05-Firmware/greenhousenode/Sources/cli"]
 	path = 05-Firmware/greenhousenode/Sources/cli
 	url = https://github.com/Loccioni-Electronic/cli.git
+[submodule "05-Firmware/greenhousenode/Sources/drv8832"]
+	path = 05-Firmware/greenhousenode/Sources/drv8832
+	url = ../drv8832.git
