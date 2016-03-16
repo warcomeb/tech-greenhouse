@@ -1,3 +1,9 @@
 [submodule "04-Layout/wkicadlib"]
 	path = 04-Layout/wkicadlib
 	url = ../wkicadlib.git
+[submodule "05-Firmware/greenhousenode/Sources/libohiboard"]
+	path = 05-Firmware/greenhousenode/Sources/libohiboard
+	url = ../../ohilab/libohiboard.git
+[submodule "05-Firmware/greenhousenode/Sources/cli"]
+	path = 05-Firmware/greenhousenode/Sources/cli
+	url = https://github.com/Loccioni-Electronic/cli.git
